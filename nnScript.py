@@ -282,47 +282,6 @@ def nnPredict(w1,w2,data):
         
     return labels
     
-    '''n_input = w1.shape[1] - 1
-    n_hidden = w1.shape[0]
-    n_class = w2.shape[0]
-    n_samples = data.shape[0];
-    inp = np.zeros((1,n_input+1))
-    hid = np.zeros((1,n_hidden+1))
-    out = np.zeros((1,n_class))
-    label = np.array([])
-    hid[0][n_hidden] = 1 #setting bias terms
-    initLabel = False
-    for sam in range(n_samples):
-        inp = np.concatenate((data[sam,:],[1])) #appending bias terms
-        inp = inp.reshape(1,inp.size)
-        # feed forward
-        hid[0][:-1] = np.dot(inp,w1.T)
-        hid[0][:-1] = sigmoid(hid[0][:-1])
-        out = np.dot(hid,w2.T)
-        out = sigmoid(out)
-        temp = np.array([0]*10)
-        temp[np.argmax(out)] = 1
-        if (initLabel):
-            label = np.vstack((label,temp))
-        else:
-            label = np.copy(temp)
-            initLabel = True
-    #print label
-    return label'''
-    '''bias_col = np.ones_like(data[:,-1]).reshape(-1, 1)
-    data_bias = np.hstack((data, bias_col))
-    data_bias_w1 = sigmoid(np.dot(data_bias,np.transpose(w1)))
-    data_bias_w1_bias = np.hstack((data_bias_w1,bias_col))
-    labels = sigmoid(np.dot(data_bias_w1_bias,np.transpose(w2)))
-    amax = np.argmax(labels,1);
-    tmparr = np.array([[]]).reshape(0,10)
-    for i in range(0,amax.size):
-        tmptmp = np.repeat(0,10);
-        tmptmp[amax[i]] = 1;
-        tmparr = np.vstack((tmparr,tmptmp))
-    # return labels
-    # print tmparr == labels.argmax(0)
-    return tmparr'''
 
 
 """**************Neural Network Script Starts here********************************"""
